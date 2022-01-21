@@ -1,0 +1,28 @@
+<h8>Categories</h8>
+<hr />
+<div class="list-group">
+
+    {% if selected_category=='all-categories' %}
+    <a href="/catalogue/all-categories/{{selected_brand}}/" class="list-group-item list-group-item-action active" aria-current="true">
+        All
+    </a>
+    {% else %}
+    <a href="/catalogue/all-categories/{{selected_brand}}/" class="list-group-item list-group-item-action">
+        All
+    </a>
+    {% endif %}
+
+    {% for c in categories %}
+    {% if c.slug == selected_category %}
+    <a href="/catalogue/{{c.slug}}/{{selected_brand}}/" class="list-group-item list-group-item-action active" aria-current="true">
+        {{c.name}}
+    </a>
+    {% else %}
+    <a href="/catalogue/{{c.slug}}/{{selected_brand}}/" class="list-group-item list-group-item-action">
+        {{c.name}}
+    </a>
+    {% endif %}
+    {% endfor %}
+</div>
+<hr />
+

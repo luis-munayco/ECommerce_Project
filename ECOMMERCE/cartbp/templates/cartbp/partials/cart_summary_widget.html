@@ -1,0 +1,14 @@
+{% if cart_item_count > 0 %}
+<span class="mx-2">My Cart: </span>
+<span class="mx-2">{{cart_item_count}} item(s)</span>
+<span class="mx-2">${{ "%.2f"|format(cart_total) }}</span>
+{% endif %}
+
+<a class="text-reset me-3 position-relative" href="/cart">
+  <i class="bi bi-cart-check-fill fs-3"></i>
+  {% if cart_item_count >0 %}
+  <span class=" position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style='font-size:10px;'>
+    {{cart_item_count}}
+  </span>
+  {% endif %}
+</a>

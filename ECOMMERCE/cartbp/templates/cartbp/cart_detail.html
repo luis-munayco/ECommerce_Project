@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<!-- Cart Content -->
+
+    <div class="container mt-5">
+        <div class="row">
+            
+            <div class="col-9 border border-white bg-light">
+
+                <div class="container-fluid">
+                    
+                    <!-- Header -->
+                    <div class="d-flex mt-5">
+                        <div class="ms-4 fs-4">
+                            <p>Your Cart</p>
+                        </div>
+                        <div class="ms-auto me-4">
+                            <a class="btn btn-outline-primary" href="/" role="button">Continue Shopping</a>
+                        </div>
+                    </div>
+
+                    <!-- Table -->
+                    <div class="mt-3">
+                        {% if cart_items %}
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Item</th>
+                                    <th></th>
+                                    <th class="text-center">Price</th>
+                                    <th class="text-center">Quantity</th>
+                                    <th class="text-center">Total</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in cart_items %}
+                                <tr>
+                                    <td class="text-center">
+                                        <img src="/static/images/productimages/{{item.image_url()}}" />
+                                    </td>
+                                    <td class="text-left">{{item.name()}}</td>
+                                    <td class="text-center">${{item.price()}}</td>
+                                    <td class="text-center">{{item.quantity}}</td>
+                                    <td class="text-center">${{ "%.2f"|format(item.cart_item_total()) }}</td>
+                                    <td class="text-center">
+                                        <form method="post">
+                                            <input type="hidden" name="product_id" value="{{item.product.id}}" />
+                                            <button type="submit">X</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        {% endif %}
+                    </div>
+
+
+                </div>
+            
+            </div>
+            
+            
+            <div class="col-3 border border-white bg-primary bg-opacity-25">
+
+                <div class="container-fluid">
+
+                            <div class="mt-5 fs-4">
+                                <p> Cart Summary</p>
+                            </div>
+                            
+                            <div>
+                                <span class="me-5">Items({{cart_item_count}})</span>
+                                <span>${{ "%.2f"|format(cart_total) }}</span>
+                            </div>
+                            
+                            <div class="mt-5 fw-bold d-flex justify-content-center">
+                                <p>Free 3-Day Shipping</p>
+                            </div>
+
+                            <div class="mt-2 d-flex justify-content-center">
+                                <a class="btn btn-primary" href="/checkout" role="button">PROCEED TO CHECKOUT</a>
+                            </div>
+
+                </div>
+            
+            </div>
+        
+        </div>
+    </div>
+
+
+{% endblock %}

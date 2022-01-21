@@ -1,0 +1,27 @@
+<h8>Brand</h8>
+<hr />
+<div class="list-group">
+    
+    {% if selected_brand=='all-brands' %}
+    <a href="/catalogue/{{selected_category}}/all-brands/" class="list-group-item list-group-item-action active" aria-current="true">
+        All
+    </a>
+    {% else %}
+    <a href="/catalogue/{{selected_category}}/all-brands/" class="list-group-item list-group-item-action">
+        All
+    </a>
+    {% endif %}
+
+    {% for b in brands %}
+    {% if b.slug == selected_brand %}
+    <a href="/catalogue/{{selected_category}}/{{b.slug}}/" class="list-group-item list-group-item-action active" aria-current="true">
+        {{b.name}}
+    </a>
+    {% else %}
+    <a href="/catalogue/{{selected_category}}/{{b.slug}}/" class="list-group-item list-group-item-action">
+        {{b.name}}
+    </a>
+    {% endif %}
+    {% endfor %}
+</div>
+<hr>

@@ -1,0 +1,14 @@
+<div class="card" style="width: 18rem;">
+    <img src="/static/images/productimages/{{product.image_url}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{product.name}}</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      
+      <form method="post" action="/catalogue/">
+          <input type="hidden" name="product_id" value="{{product.id}}" />
+          <input type="hidden" name="return_url" value="{{request.get_full_path}}" />
+          <button type="submit" name="submit">Add to Cart</button>
+      </form>
+    
+    </div>
+</div>
