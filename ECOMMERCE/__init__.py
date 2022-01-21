@@ -59,9 +59,9 @@ def create_app(settings_module):
 
     from ECOMMERCE.locationbp.models import Address
     admin.add_view(ModelView(Address, db.session))
-
+    
     # Init SQLAlchemy
     db.init_app(app)
     migrate=Migrate(app,db)
-
+    
     return app
