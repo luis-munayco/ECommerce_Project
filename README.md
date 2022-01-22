@@ -19,6 +19,4 @@ Objectives and tasks:
 
 Software: 1- Python/  2- Flask  /  3- PostgreSQL  /  4- SQLite  / 5- HTML / 5- CSS / 5- Bootstrap
 
-Main Skills: 1- Data Cleaning / 2- ETL / 3- Data Visualization
-
 Project deployed can be found in following link ( https://app-luismo.herokuapp.com/catalogue/ )
