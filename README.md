@@ -21,4 +21,4 @@ Software: 1- Python/  2- Flask  /  3- PostgreSQL  /  4- SQLite  / 5- HTML / 5- C
 
 Project deployed can be found in following link ( https://app-luismo.herokuapp.com/catalogue/ )
 
-![My Image](Images/EP_Catalogue.png)
+![My Image](/Images/EP_Catalogue.PNG)
